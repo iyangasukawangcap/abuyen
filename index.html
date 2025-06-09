@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8">
+  <title>Abuyen Live Page</title>
+  <style>
+    html, body {
+      margin: 0;
+      padding: 0;
+      overflow: hidden;
+      height: 100%;
+      width: 100%;
+      font-family: 'Arial Black', sans-serif;
+      color: white;
+    }
+
+    body {
+      background: url('IMG-20250609-WA0021.jpg') no-repeat center center fixed;
+      background-size: cover;
+    }
+
+    .marquee {
+      position: absolute;
+      top: 10px;
+      width: 100%;
+      overflow: hidden;
+      white-space: nowrap;
+      font-size: 3em;
+      animation: scroll-left 10s linear infinite;
+      text-shadow: 2px 2px 4px black;
+    }
+
+    @keyframes scroll-left {
+      0%   { transform: translateX(100%); }
+      100% { transform: translateX(-100%); }
+    }
+
+    .clock {
+      position: absolute;
+      bottom: 30px;
+      right: 30px;
+      font-size: 2.5em;
+      background: rgba(0,0,0,0.5);
+      padding: 10px 20px;
+      border-radius: 10px;
+    }
+  </style>
+</head>
+<body>
+
+  <div class="marquee">BANINDO WANGSAFF - ABYEN</div>
+  <div class="clock" id="clock">00:00:00</div>
+
+  <script>
+    function updateClock() {
+      const now = new Date();
+      const h = String(now.getHours()).padStart(2, '0');
+      const m = String(now.getMinutes()).padStart(2, '0');
+      const s = String(now.getSeconds()).padStart(2, '0');
+      document.getElementById('clock').textContent = `${h}:${m}:${s}`;
+    }
+
+    setInterval(updateClock, 1000);
+    updateClock(); // Initial call
+  </script>
+
+</body>
+</html>
